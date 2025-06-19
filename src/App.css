@@ -1,3 +1,240 @@
+/* src/App.css */
+
+/* Gaya global untuk elemen body dan root */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f3f4f6; /* Latar belakang abu-abu muda */
+}
+
+/* Wadah untuk seluruh aplikasi, berada di tengah layar */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem; /* Padding lebih kecil di layar kecil */
+}
+
+/* Media query untuk layar lebih besar */
+@media (min-width: 640px) { /* sm breakpoint dalam Tailwind */
+  .app-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint dalam Tailwind */
+  .app-container {
+    padding: 2rem;
+  }
+}
+
+/* Wadah kartu untuk formulir */
+.form-card {
+  background-color: #ffffff; /* Latar belakang putih */
+  padding: 1.5rem; /* Padding lebih kecil di layar kecil */
+  border-radius: 0.5rem; /* Sudut membulat */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Bayangan lembut */
+  width: 100%;
+  max-width: 40rem; /* Lebar maksimal untuk layar yang lebih lebar */
+}
+
+/* Media query untuk layar menengah */
+@media (min-width: 640px) { /* sm breakpoint dalam Tailwind */
+  .form-card {
+    padding: 2rem;
+    max-width: 32rem; /* Max-width disesuaikan untuk md */
+  }
+}
+
+@media (min-width: 768px) { /* md breakpoint dalam Tailwind */
+  .form-card {
+    max-width: 36rem; /* Max-width disesuaikan untuk lg */
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint dalam Tailwind */
+  .form-card {
+    max-width: 40rem; /* Max-width disesuaikan untuk xl */
+  }
+}
+
+
+/* Styling judul formulir */
+.form-title {
+  font-size: 1.5rem; /* Ukuran font 2xl */
+  font-weight: 700; /* bold */
+  color: #1f2937; /* gray-800 */
+  text-align: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+/* Media query untuk ukuran judul formulir yang lebih kecil */
+@media (min-width: 640px) { /* sm breakpoint dalam Tailwind */
+  .form-title {
+    font-size: 1.875rem; /* Ukuran font 3xl */
+    margin-bottom: 2rem; /* mb-8 */
+  }
+}
+
+/* Tata letak grid untuk field formulir */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* space-y-4 */
+}
+
+/* Media query untuk gap yang lebih besar */
+@media (min-width: 640px) { /* sm breakpoint dalam Tailwind */
+  .form-grid {
+    gap: 1.25rem; /* space-y-5 */
+  }
+}
+
+/* Wadah field formulir individual */
+.form-field {
+  /* Tidak ada gaya spesifik yang dibutuhkan di sini, terutama untuk spasi */
+}
+
+/* Styling label */
+.form-label {
+  display: block;
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* font-medium */
+  color: #374151; /* gray-700 */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+/* Styling input dan textarea */
+.form-input,
+.form-select,
+.form-input-file {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  border: 1px solid #d1d5db; /* border-gray-300 */
+  border-radius: 0.375rem; /* rounded-md */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  outline: none;
+  font-size: 1rem; /* ukuran teks dasar */
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-input-file:focus {
+  border-color: #3b82f6; /* focus:border-blue-500 */
+  box-shadow: 0 0 0 1px #3b82f6, 0 0 0 2px rgba(59, 130, 246, 0.5); /* focus:ring-blue-500 */
+}
+
+/* Media query untuk ukuran font input */
+@media (min-width: 640px) { /* sm breakpoint dalam Tailwind */
+  .form-input,
+  .form-select {
+    font-size: 1rem; /* sm:text-base */
+  }
+}
+
+/* Styling spesifik untuk resize textarea */
+.textarea-resize {
+  resize: vertical; /* Izinkan perubahan ukuran vertikal */
+}
+
+/* Styling spesifik input file */
+.form-input-file {
+  font-size: 0.875rem; /* text-sm */
+  color: #111827; /* text-gray-900 */
+  background-color: #f9fafb; /* bg-gray-50 */
+  cursor: pointer;
+}
+
+.form-input-file::-webkit-file-upload-button {
+  margin-right: 1rem; /* file:mr-4 */
+  padding: 0.5rem 1rem; /* file:py-2 file:px-4 */
+  border-radius: 0.375rem; /* file:rounded-md */
+  border: 0; /* file:border-0 */
+  font-size: 0.875rem; /* file:text-sm */
+  font-weight: 600; /* file:font-semibold */
+  background-color: #eff6ff; /* file:bg-blue-50 */
+  color: #1d4ed8; /* file:text-blue-700 */
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.form-input-file::file-selector-button { /* Properti standar untuk tombol input file */
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.form-input-file::-webkit-file-upload-button:hover,
+.form-input-file::file-selector-button:hover {
+  background-color: #dbeafe; /* hover:file:bg-blue-100 */
+}
+
+/* Tampilan nama file di bawah input file */
+.file-name-display {
+  margin-top: 0.5rem; /* mt-2 */
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+}
+
+.file-name-text {
+  font-weight: 600; /* font-semibold */
+}
+
+/* Styling spesifik dropdown select */
+.form-select {
+  padding-right: 2.5rem; /* Sesuaikan padding untuk panah dropdown */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em 1.5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+/* Styling tombol submit */
+.submit-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 1rem; /* py-2 px-4 */
+  border: 1px solid transparent;
+  border-radius: 0.375rem; /* rounded-md */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-semibold */
+  color: #ffffff; /* text-white */
+  background-color: #2563eb; /* bg-blue-600 */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* transisi duration-300 ease-in-out */
+}
+
+.submit-button:hover {
+  background-color: #1d4ed8; /* hover:bg-blue-700 */
+  transform: scale(1.02); /* hover:scale-105 */
+}
+
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #bfdbfe, 0 0 0 4px #3b82f6; /* focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 */
+}
+
+/* Gaya dasar terkait aplikasi yang sering ditemukan di create-react-app (dipertahankan untuk kelengkapan jika diperlukan) */
+/* Anda mungkin tidak memerlukan gaya spesifik ini jika tata letak Anda sepenuhnya kustom */
 .App {
   text-align: center;
 }
@@ -36,3 +273,4 @@
     transform: rotate(360deg);
   }
 }
+
