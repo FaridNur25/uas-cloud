@@ -18,10 +18,10 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Copy konfigurasi nginx jika ada
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Tambahkan konfigurasi nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Ekspos port 80
-EXPOSE 80
+# Expose port 8080 (harus sesuai dengan konfigurasi)
+EXPOSE 8080
 
 CMD ["nginx", "-g", "daemon off;"]
